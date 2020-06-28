@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App</title>
+  <!-- <% z="http://localhost:"+PORT+"/socket.io/socket.io.js"%> -->
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+			crossorigin="anonymous"
+		/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+    body {
+      
+      justify-content: center;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      background: #e6e9ff;
+      margin: 40px;
+    }
+    #room-container {
+      border-radius: 15px;
+      background: #393e46;
+      color: aliceblue;
+      padding:10px 10px 5px;
+      margin: 3% 0;
+    }
+    .container{
+      padding: 4rem;
+      width:30%;
+      border-radius: 15px;
+      background: #667aff;
+      padding: 20px;
+      color: aliceblue;
+    }
+    h1{
+      text-align: center;
+      margin: 1rem;
+    }
+    form{
+      margin-bottom: 1.3rem;
+    }
+    hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid white;
+}
+footer{
+  text-align: center;
+  width: 100%;
+  left:0px;
+  margin-top: 100px;
+  bottom: 10px;
+}
+    @media (max-width: 700px) {
+      .container{
+        width:100%
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <h1>TexTalk <i class="fas fa-comments"></i></h1>
+    <hr>
+    <form  action="/room" method="POST">
+    <div class="form-group">
+      <label><h5>Create Your Own Room</h5></label>
+      <input name="room" class='form-control' type="text" placeholder="Enter room name..." autocomplete="off" required>
+    </div>
+    <button type="submit" class="btn btn-dark">Create</button>
+  </form>
+  <div id="room-container">
+    <h5>Join Existing Rooms:</h5>
+      <ul>
+    <% Object.keys(rooms).forEach(room => { %>
+      <li><%= room %> ↪ <a href="/<%= room %>">Join</a></li>
+      
+    <% }) %>
+  </ul>
+  </div>
+  </div>
+  <footer>
+    © 2020 Ankit Dutta
+  </footer>
+</body>
+</html>

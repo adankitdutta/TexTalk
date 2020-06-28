@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App</title>
+  <script>
+    const roomName = "<%= roomName %>"
+  </script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      background: #e6e9ff;
+    }
+    #message-container {
+      width: 100%;
+      max-width: 1200px;
+      min-height: 500px;
+    }
+    #message-container div {
+      background-color: #CCC;
+      margin: 3%;
+     border-radius: 50px 15px 5px 30px;
+      padding: 0.7rem 1.5rem;
+    }
+    #message-container div:nth-child(2n) {
+      background-color:#7386ff;
+      margin: 3%;
+      border-radius: 15px 50px 30px 5px;
+      padding: 0.7rem 1.5rem;
+    }
+    #send-container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      bottom: 0;
+      background-color: #e6e9ff;
+      max-width: 1200px;
+      display: flex;
+    }
+    #message-input {
+      flex-grow: 1;
+    }
+    .container{
+      width:50%;
+    }
+    h4{
+      text-align: center;
+    }
+    @media (max-width: 1200px) {
+      .container{
+        width:100%;
+      }
+      #message-container {
+      min-height: 450px;
+    }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h4>Room - <%= roomName %></h4>
+    <hr>
+    <div id="message-container"></div>
+    <form id="send-container">
+    <div class="form-group col-lg-11 mb-2">
+      <input class='form-control ' type="text" id="message-input" autocomplete="off" required>
+    </div>
+    <button class="btn btn-primary mb-2"><i class="fas fa-paper-plane"></i></button>
+    
+  </form>
+  </div>
+</body>
+</html>
