@@ -27,7 +27,7 @@
     #message-container {
       width: 100%;
       max-width: 1200px;
-      min-height: 73vh;
+      min-height: 72vh;
       max-height: 73px;
 	    overflow-y: scroll;
     }
@@ -44,11 +44,12 @@
       padding: 0.7rem 1.5rem;
     }
     #send-container {
-      padding-top: 30px;
-      bottom: 0;
+      padding-top:1rem;
+      padding-bottom: 0;
       background-color: #e6e9ff;
-      max-width: 1200px;
       display: flex;
+      margin-left: 0;
+      margin-right: 0;
     }
     #message-input {
       flex-grow: 1;
@@ -72,11 +73,10 @@
     <hr>
     <div id="message-container"></div>
     <form id="send-container">
-    <div class="form-group col-lg-11 mb-2">
-      <input class='form-control ' type="text" id="message-input" autocomplete="off" required>
-    </div>
-    <button class="btn btn-primary mb-2"><i class="fas fa-paper-plane"></i></button>
-      
+      <div class="form-group col-lg-11 mb-2">
+        <input class='form-control ' type="text" id="message-input" autocomplete="off" required>
+      </div>
+      <button class="btn btn-primary mb-2"><i class="fas fa-paper-plane"></i></button>
     </form>
   </div>
 </body>
